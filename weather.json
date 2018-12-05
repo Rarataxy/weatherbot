@@ -1,6 +1,21 @@
 {
     "rainyColor": "#40a4df",
     "rainyEmote1": ":cloud_rain:",
-    "rainyEmote2": ":sweat:",
-    "rainyDesc": "yeeterdespaceeter"
+    "rainyEmote2": ":umberlla2:",
+    "rainyDesc": "A light rain will fall today afternoon, so be prepared!",
+
+    "snowyColor": "#fffafa",
+    "snowyEmote": ":cloud_snow:",
+    "snowyEmote2": ":snowman: ",
+    "snowyDesc": "*snowball fight!*",
+
+    "thunderColor": "#A99923",
+    "thunderEmote1": ":thunder_cloud_rain:",
+    "thunderEmote2": ":zap: ",
+    "thunderDesc": "lighing mcqween",
+
+    "windyColor": "#a2a4a5",
+    "windyEmote1": ":leaves:",
+    "windyEmote2": ":dash:",
+    "windyDesc": "its gon be windy"
 }
