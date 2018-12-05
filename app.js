@@ -1,7 +1,8 @@
 const discord = require('discord.js');
 const bot = new discord.Client();
 const config = require("./config.json");
-const weatherData = require("./weatherData.json")
+const weatherData = require("./weatherData.json");
+const weather = require("./weather.json")
 const fs = require("fs");
 
 
@@ -18,7 +19,7 @@ bot.on('message', message => {
         .setColor(colours())
         .addField("Standard", "`Help`, `ping`, `prefix`")
         .addField("Settings", "`setpref`")
-        .addField("weatherData/Events", "`weatherData`, `weatherData Alter`, `Events`, `Event Alter`")
+        .addField("weather/Events", "`weather`, `weather Alter`, `Events`, `Event Alter`")
       return message.channel.send(embedHelp);
     }  
   });
@@ -62,12 +63,12 @@ bot.on('message', message =>{
 
 
 bot.on('message', message => {
-    if(message.content === config.prefix + 'weatherData'){
-      let weatherDataEmb = new discord.RichEmbed()
-       .setColor(weatherDataColour())
-       .addField(":earth_africa: weatherData", 'What\'s the weatherData today?')
-       .addField(weatherDataEmoji() + ' ' + weatherData.weatherData, 'dabonem')
-      return message.channel.send(weatherDataEmb);
+    if(message.content === config.prefix + 'weather'){
+      let weatherEmb = new discord.RichEmbed()
+       .setColor(weatherColour())
+       .addField(":earth_africa: weather", 'What\'s the weather today?')
+       .addField(weatherEmoji() + ' ' + weatherData.weather, 'dabonem')
+      return message.channel.send(weatherEmb);
     }
 });
 
@@ -84,14 +85,14 @@ bot.on('message', message => {
     return random;
   };
 
-  function weatherDataColour(){
-    if(weatherData.weatherData === "Rainy"){
+  function weatherColour(){
+    if(weatherData.weather === "Rainy"){
       return '#40a4df';
     }
-    else if(weatherData.weatherData === "Snowy"){
+    else if(weatherData.weather === "Snowy"){
       return '#fffafa';
     }
-    else if(weatherData.weatherData === "Thunder"){
+    else if(weatherData.weather === "Thunder"){
       return '#A99923';
     }
     else{
@@ -99,14 +100,14 @@ bot.on('message', message => {
     }
   };
   
-  function weatherDataEmoji(){
-    if(weatherData.weatherData === "Rainy"){
+  function weatherEmoji(){
+    if(weatherData.weather === "Rainy"){
       return ':cloud_rain:';
     }
-    else if(weatherData.weatherData === "Snowy"){
+    else if(weatherData.weather === "Snowy"){
       return ':cloud_snow:';
     }
-    else if(weatherData.weatherData === "Thunder"){
+    else if(weatherData.weather === "Thunder"){
       return ':thunder_cloud_rain:';
     }
     else{
