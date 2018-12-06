@@ -61,9 +61,9 @@ bot.on('message', message =>{
 bot.on('message', message => {
     if(message.content === config.prefix + 'weather'){
       let weatherEmb = new discord.RichEmbed()
-       .setColor(weatherStatus.C)
+       .setColor(weather.C)
        .addField(":earth_africa: weather", 'What\'s the weather today?')
-       .addField(weatherStatus.E1 + ' ' + weatherData.weather, weatherStatus.E2 + ' ' + weatherStatus.D)
+       .addField(weather.E1 + ' ' + weatherData.weather, weather.E2 + ' ' + weather.D)
       return message.channel.send(weatherEmb);
     }
 });
