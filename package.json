@@ -1,10 +1,9 @@
 {
-    "name": "suou",
-    "version": "1.0.0",
-    "main": "app.js",
-    "description": "you wanna ride me, huh?",
-    "dependencies": {
-      "discord.js": "^11.3.0"
-    }
+  "name": "suou",
+  "version": "1.0.0",
+  "main": "app.js",
+  "description": "you wanna ride me, huh?",
+  "dependencies": {
+    "discord.js": "^11.3.0"
   }
-  
+}

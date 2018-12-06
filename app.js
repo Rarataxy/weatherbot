@@ -16,7 +16,7 @@ bot.on('message', message => {
     if (message.content === config.prefix + 'help'){
       let embedHelp = new discord.RichEmbed()
         .setTitle("help command")
-        .setColor(colours())
+        .setColor(colors())
         .addField("Standard", "`Help`, `ping`, `prefix`")
         .addField("Settings", "`setpref`")
         .addField("weather/Events", "`weather`, `weather Alter`, `Events`, `Event Alter`")
@@ -28,7 +28,7 @@ bot.on('message', message => {
     if (message.content === ';;prefix') {
       let curpref = new discord.RichEmbed()
         .setTitle("whats ur prefix?")
-        .setColor(colours())
+        .setColor(colors())
         .addField(":b: prefix", "The current prefix is set to " + config.prefix)
       return message.channel.send(curpref)
 }
@@ -41,7 +41,7 @@ bot.on('message', message =>{
         config.prefix = newPrefix;
         fs.writeFile("./config.json", JSON.stringify(config), (err) => console.error);
         let prefEmb = new discord.RichEmbed()
-         .setColor(colours())
+         .setColor(colors())
          .addField("Success!", "the command has been run perfectly")
          .addField(":gear: prefix", 'The prefix is now set to ' + config.prefix)
         return message.channel.send(prefEmb);
@@ -65,7 +65,7 @@ bot.on('message', message =>{
 bot.on('message', message => {
     if(message.content === config.prefix + 'weather'){
       let weatherEmb = new discord.RichEmbed()
-       .setColor(weatherColour())
+       .setColor(weatherColor())
        .addField(":earth_africa: weather", 'What\'s the weather today?')
        .addField(weatherEmoji() + ' ' + weatherData.weather, 'dabonem')
       return message.channel.send(weatherEmb);
@@ -79,38 +79,8 @@ bot.on('message', message => {
 
 
 
-  function colours(){
+  function colors(){
     let kolors = ['#b53000','#e0af00','#b1e800','#1daa11','#09b774','#1092ba','#262da8','#7228a3','#bf1cae','#d30860','#c41717'];
     let random = kolors[Math.floor(Math.random()*kolors.length)];
     return random;
   };
-
-  function weatherColour(){
-    if(weatherData.weather === "Rainy"){
-      return '#40a4df';
-    }
-    else if(weatherData.weather === "Snowy"){
-      return '#fffafa';
-    }
-    else if(weatherData.weather === "Thunder"){
-      return '#A99923';
-    }
-    else{
-      return '#a2a4a5';
-    }
-  };
-  
-  function weatherEmoji(){
-    if(weatherData.weather === "Rainy"){
-      return ':cloud_rain:';
-    }
-    else if(weatherData.weather === "Snowy"){
-      return ':cloud_snow:';
-    }
-    else if(weatherData.weather === "Thunder"){
-      return ':thunder_cloud_rain:';
-    }
-    else{
-      return ':leaves:';
-    }
-  }
