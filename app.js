@@ -2,6 +2,7 @@ const discord = require('discord.js');
 const bot = new discord.Client();
 const config = require("./config.json");
 const weatherData = require("./weatherData.json");
+const weatherStatus = require("./weatherStatus.json");
 const weather = require("./weather.json")
 const fs = require("fs");
 
@@ -51,30 +52,21 @@ bot.on('message', message =>{
         }};
   });
 
-
   bot.on('message', message => {     
     if(message.content === config.prefix + 'ping') {
-      message.channel.send('Pong')
+      message.channel.send('Pong');
     }
 });
-
-
-
-
 
 bot.on('message', message => {
     if(message.content === config.prefix + 'weather'){
       let weatherEmb = new discord.RichEmbed()
-       .setColor(weatherColor())
+       .setColor(weatherStatus.C)
        .addField(":earth_africa: weather", 'What\'s the weather today?')
-       .addField(weatherEmoji() + ' ' + weatherData.weather, 'dabonem')
+       .addField(weatherStatus.E1 + ' ' + weatherData.weather, weatherStatus.E2 + ' ' + weatherStatus.D)
       return message.channel.send(weatherEmb);
     }
 });
-
-
-
-
 
 
 
