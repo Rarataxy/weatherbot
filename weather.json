@@ -1,21 +1,21 @@
 {
-    "rainyC": "#40a4df",
-    "rainyE": ":cloud_rain:",
-    "rainyE2": ":umberlla2:",
-    "rainyD": "It will rain for the rest of today, prepare yourself!",
+    "RC": "#40a4df",
+    "RE1": ":cloud_rain:",
+    "RE2": ":umberlla2:",
+    "RD": "It will rain for the rest of today, prepare yourself!",
 
-    "snowyC": "#fffafa",
-    "snowyE": ":cloud_snow:",
-    "snowyE2": ":snowman: ",
-    "snowyD": "*snowball fight!*",
+    "SC": "#fffafa",
+    "SE1": ":cloud_snow:",
+    "SE2": ":snowman: ",
+    "SD": "*snowball fight!*",
 
-    "thunderC": "#A99923",
-    "thunderE": ":thunder_cloud_rain:",
-    "thunderE2": ":zap: ",
-    "thunderD": "lighing mcqween",
+    "TC": "#A99923",
+    "TE1": ":thunder_cloud_rain:",
+    "TE2": ":zap: ",
+    "TD": "lighing mcqween",
 
-    "windyC": "#a2a4a5",
-    "windyE": ":leaves:",
-    "windyE2": ":dash:",
-    "windyD": "its gon be windy"
+    "WC": "#a2a4a5",
+    "WE1": ":leaves:",
+    "WE2": ":dash:",
+    "WD": "its gon be windy"
 }
