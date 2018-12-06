@@ -1,21 +1,21 @@
 {
-    "rainyColor": "#40a4df",
-    "rainyEmote1": ":cloud_rain:",
-    "rainyEmote2": ":umberlla2:",
-    "rainyDesc": "It will rain for the rest of today, prepare yourself!",
+    "rainyC": "#40a4df",
+    "rainyE": ":cloud_rain:",
+    "rainyE2": ":umberlla2:",
+    "rainyD": "It will rain for the rest of today, prepare yourself!",
 
-    "snowyColor": "#fffafa",
-    "snowyEmote": ":cloud_snow:",
-    "snowyEmote2": ":snowman: ",
-    "snowyDesc": "*snowball fight!*",
+    "snowyC": "#fffafa",
+    "snowyE": ":cloud_snow:",
+    "snowyE2": ":snowman: ",
+    "snowyD": "*snowball fight!*",
 
-    "thunderColor": "#A99923",
-    "thunderEmote1": ":thunder_cloud_rain:",
-    "thunderEmote2": ":zap: ",
-    "thunderDesc": "lighing mcqween",
+    "thunderC": "#A99923",
+    "thunderE": ":thunder_cloud_rain:",
+    "thunderE2": ":zap: ",
+    "thunderD": "lighing mcqween",
 
-    "windyColor": "#a2a4a5",
-    "windyEmote1": ":leaves:",
-    "windyEmote2": ":dash:",
-    "windyDesc": "its gon be windy"
+    "windyC": "#a2a4a5",
+    "windyE": ":leaves:",
+    "windyE2": ":dash:",
+    "windyD": "its gon be windy"
 }
