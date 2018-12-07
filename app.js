@@ -2,7 +2,7 @@ const discord = require('discord.js');
 const bot = new discord.Client();
 const config = require("./config.json");
 const weatherStatus = require("./weatherStatus.json");
-const weatherUpdater = require("./weatherupdater.js")
+const weatherupdater = require("./weatherupdater.js")
 const weatherData = require("./weatherData.json");
 const weather = require("./weather.json")
 const fs = require("fs");
@@ -56,7 +56,7 @@ bot.on('message', message =>{
   bot.on('message', message => {     
     if(message.content === config.prefix + 'ping') {
       message.channel.send('Pong');
-      randomweather();
+      weatherupdater.updateW();
     }
 });
 
@@ -69,14 +69,6 @@ bot.on('message', message => {
       return message.channel.send(weatherEmb);
     }
 });
-
-
-
-  function randomweather(){
-    let weather = [weatherUpdater.updateR(), weatherUpdater.updateS(),weatherUpdater.updateT(), weatherUpdater.updateW()]
-    let random = weather[Math.floor(Math.random()*weather.length)];
-    return toString(random);
-  }
 
   function colors(){
     let kolors = ['#b53000','#e0af00','#b1e800','#1daa11','#09b774','#1092ba','#262da8','#7228a3','#bf1cae','#d30860','#c41717'];
