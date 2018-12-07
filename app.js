@@ -91,3 +91,16 @@ bot.on('message', message =>{
   }
 });
 
+
+//alter commands
+
+bot.on('message', message => {
+   if (message.content.startsWith(config.prefix + 'alter')) {
+    if(message.member.roles.find("name", "yeeter")){
+      message.channel.send("pong");
+    }
+    else{
+      message.channel.send('yah yeet no can do')
+    }
+   } });
+
