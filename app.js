@@ -1,11 +1,12 @@
 const discord = require('discord.js');
 const bot = new discord.Client();
 const config = require("./config/config.json");
-const weatherStatus = require("./weatherStatus.json");
 const weatherupdater = require("./weatherupdater.js");
+const eventUpdater = require("./eventUpdater.js");
 const weatherData = require("./weatherData.json");
-const weather = require("./weather.json");
 const functions = require("./functions.js");
+const weather = require("./weather.json");
+const event = require("./events.json");
 const fs = require("fs");
 
 
@@ -42,9 +43,9 @@ bot.on('message', message =>{
         if(message.member.hasPermission('ADMINISTRATOR')){
         let newPrefix = message.content.split(" ").slice(1, 2)[0];
         config.prefix = newPrefix;
-        fs.writeFile("./config.json", JSON.stringify(config), (err) => console.error);
+        fs.writeFile("./config/config.json", JSON.stringify(config), (err) => console.error);
         let prefEmb = new discord.RichEmbed()
-         .setColor(fuinctios.colors())
+         .setColor(functions.colors())
          .addField("Success!", "the command has been run perfectly")
          .addField(":gear: prefix", 'The prefix is now set to ' + config.prefix)
         return message.channel.send(prefEmb);
@@ -58,15 +59,35 @@ bot.on('message', message =>{
     if(message.content === config.prefix + 'ping') {
       message.channel.send('Pong');
       weatherupdater.updateC();
+      eventUpdater.eclypse();
     }
 });
+
+
+//actuall weather stuff
+
+
 
 bot.on('message', message => {
     if(message.content === config.prefix + 'weather'){
       let weatherEmb = new discord.RichEmbed()
        .setColor(weather.C)
-       .addField(":earth_africa: weather", 'What\'s the weather today?')
+       .addField(":earth_africa: Weather", 'What\'s the weather today?')
        .addField(weather.E1 + ' ' + weatherData.weather, weather.E2 + ' ' + weather.D)
       return message.channel.send(weatherEmb);
     }
 });
+
+bot.on('message', message =>{
+  if(message.content === config.prefix + 'event'){
+    let eventEmb = new discord.RichEmbed()
+     .setAuthor("WeatherBot Events", icon_url="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn3.iconfinder.com%2Fdata%2Ficons%2Fluchesa-vol-9%2F128%2FWeather-512.png&f=1")
+     .setColor(event.C)
+     .setTitle(event.E1 + "  Events")
+     .setDescription("What's the current event?")
+     .addField(event.E2 + '  ' + weatherData.event, '***                  ***' + '  ' + event.D, false)
+     .setFooter("------------------------ events ------------------------")
+     return message.channel.send(eventEmb);
+  }
+});
+
