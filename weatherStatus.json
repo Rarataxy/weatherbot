@@ -4,10 +4,10 @@
     "RE2": ":umbrella:",
     "RD": "It will rain for the rest of today, prepare yourself!",
 
-    "SC": "#fffafa",
-    "SE1": ":cloud_snow:",
-    "SE2": ":snowman: ",
-    "SD": "*snowball fight!*",
+    "SNC": "#fffafa",
+    "SNE1": ":cloud_snow:",
+    "SNE2": ":snowman: ",
+    "SND": "*snowball fight!*",
 
     "TC": "#A99923",
     "TE1": ":thunder_cloud_rain:",
@@ -17,5 +17,15 @@
     "WC": "#a2a4a5",
     "WE1": ":leaves:",
     "WE2": ":dash:",
-    "WD": "its gon be windy"
+    "WD": "its gon be windy",
+
+    "CC": "#aaafc4",
+    "CE1": ":cloud:",
+    "CE2": ":fog:",
+    "CD": "many clouds",
+
+    "SC": "#f7ca02",
+    "SE1": ":white_sun_small_cloud:",
+    "SE2": ":herb:",
+    "SD": "Praise the sun!"
 }
