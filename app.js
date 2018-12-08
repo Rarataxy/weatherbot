@@ -93,14 +93,15 @@ bot.on('message', message =>{
 
 
 //alter commands
-
-bot.on('message', message => {
-   if (message.content.startsWith(config.prefix + 'alter')) {
-    if(message.member.roles.find("name", "yeeter")){
-      message.channel.send("pong");
-    }
-    else{
-      message.channel.send('yah yeet no can do')
-    }
-   } });
-
+bot.on('message', message =>{
+  if (message.content.startsWith(config.prefix + 'alter')) {
+    if(message.member.roles.find("name", "weather mage")){
+      let alterEmb = new discord.RichEmbed()
+      .setColor("#7CFC00")
+      .setAuthor("--------------------------------------------------------------------------------")
+      .setTitle("Weather Alter Ability")
+      .setDescription("Select an option to change weather:")
+      .addField("Select:", "[1] Sunny\n[2] Windy\n[3] Cloudy\n[4] Rainy\n[5] Stormy\n[6] Snowy", false)
+      .setFooter("---------------------------------------------------------------------------------------------")
+    message.channel.send(alterEmb);
+    }}})
