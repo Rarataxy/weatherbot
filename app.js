@@ -70,9 +70,12 @@ bot.on('message', message =>{
 bot.on('message', message => {
     if(message.content === config.prefix + 'weather'){
       let weatherEmb = new discord.RichEmbed()
-       .setColor(weather.C)
-       .addField(":earth_africa: Weather", 'What\'s the weather today?')
-       .addField(weather.E1 + ' ' + weatherData.weather, weather.E2 + ' ' + weather.D)
+      .setAuthor("WeatherBot Events", icon_url="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn3.iconfinder.com%2Fdata%2Ficons%2Fluchesa-vol-9%2F128%2FWeather-512.png&f=1")
+      .setColor(weather.C)
+      .setTitle(weather.E1 + "  Events")
+      .setDescription("What's the current weather?")
+      .addField(weather.E2 + '  ' + weatherData.weather, '***                  ***' + '  ' + weather.D, false)
+      .setFooter("------------------------ events ------------------------")
       return message.channel.send(weatherEmb);
     }
 });
