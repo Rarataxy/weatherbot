@@ -5,6 +5,7 @@ const fs = require("fs");
 
 module.exports = {
 rainy:    function UpdateR(){
+                 weather.N = "Rainy"
                  weather.C = weatherStatus.RC;
                  weather.E1 = weatherStatus.RE1;
                  weather.E2 = weatherStatus.RE2;
@@ -13,6 +14,7 @@ rainy:    function UpdateR(){
             },
 
 snowy:    function UpdateS(){
+                 weather.N = "Snowy"
                  weather.C = weatherStatus.SNC;
                  weather.E1 = weatherStatus.SNE1;
                  weather.E2 = weatherStatus.SNE2;
@@ -20,7 +22,8 @@ snowy:    function UpdateS(){
                 fs.writeFile("./weather.json", JSON.stringify(weather), (err) => console.error);
             },
 
-thunder:    function UpdateT(){
+stormy:    function UpdateT(){
+                 weather.N = "Stormy"
                  weather.C = weatherStatus.TC;
                  weather.E1 = weatherStatus.TE1;
                  weather.E2 = weatherStatus.TE2;
@@ -29,6 +32,7 @@ thunder:    function UpdateT(){
             },
 
 windy:    function UpdateW(){
+                 weather.N = "Windy"
                  weather.C = weatherStatus.WC;
                  weather.E1 = weatherStatus.WE1;
                  weather.E2 = weatherStatus.WE2;
@@ -37,6 +41,7 @@ windy:    function UpdateW(){
             },
 
 cloudy:    function UpdateC(){
+                 weather.N = "Cloudy"
                  weather.C = weatherStatus.CC;
                  weather.E1 = weatherStatus.CE1;
                  weather.E2 = weatherStatus.CE2;
@@ -45,6 +50,7 @@ cloudy:    function UpdateC(){
             },
 
 sunny:    function UpdateS(){
+                 weather.N = "Sunny"
                  weather.C = weatherStatus.SC;
                  weather.E1 = weatherStatus.SE1;
                  weather.E2 = weatherStatus.SE2;
