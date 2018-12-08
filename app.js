@@ -9,7 +9,6 @@ const weather = require("./weather.json");
 const event = require("./events.json");
 const fs = require("fs");
 
-
 bot.login(config.token);
 
 bot.on('ready', () => {
@@ -57,8 +56,8 @@ bot.on('message', message =>{
 
   bot.on('message', message => {     
     if(message.content === config.prefix + 'ping') {
-      message.channel.send('Pong');
-      weatherupdater.updateC();
+      message.channel.send('Pong!');
+      weatherupdater.cloudy();
       eventUpdater.eclypse();
     }
 });
@@ -94,14 +93,88 @@ bot.on('message', message =>{
 
 //alter commands
 bot.on('message', message =>{
-  if (message.content.startsWith(config.prefix + 'alter')) {
+  if (message.content.startsWith(config.prefix + 'weatheralter')) {
     if(message.member.roles.find("name", "weather mage")){
-      let alterEmb = new discord.RichEmbed()
+      let wArg = message.content.split(" ").slice(1, 2)[0];
+      if( wArg === '1' || wArg === 'sunny'){
+        weatherupdater.sunny();
+         weatherData.weather = weather.N;
+        fs.writeFile("./weatherData.json", JSON.stringify(weatherData), (err) => console.error);
+        const author = message.author.username;
+        let confEmb = new discord.RichEmbed()
+         .setColor(weather.C)
+         .setTitle('@everyone ' + author + ' has used weather magic!')
+         .setDescription('*It is now ' + weatherData.weather.toLowerCase() + '*')
+        return message.channel.send(confEmb)
+      }
+      else if ( wArg === '2' || wArg === 'windy') {
+        weatherupdater.windy();
+         weatherData.weather = weather.N;
+        fs.writeFile("./weatherData.json", JSON.stringify(weatherData), (err) => console.error);
+        const author = message.author.username;
+        let confEmb = new discord.RichEmbed()
+         .setColor(weather.C)
+         .setTitle(author + ' has used weather magic!')
+         .setDescription('*It is now ' + weatherData.weather.toLowerCase() + '*')
+        return message.channel.send(confEmb)
+      }
+      else if ( wArg === '3' || wArg === 'cloudy'){
+        weatherupdater.cloudy();
+         weatherData.weather = weather.N;
+        fs.writeFile("./weatherData.json", JSON.stringify(weatherData), (err) => console.error);
+        const author = message.author.username;
+        let confEmb = new discord.RichEmbed()
+         .setColor(weather.C)
+         .setTitle(author + ' has used weather magic!')
+         .setDescription('*It is now ' + weatherData.weather.toLowerCase() + '*')
+        return message.channel.send(confEmb)
+      }
+      else if ( wArg === '4' || wArg === 'rainy'){
+        weatherupdater.rainy();
+         weatherData.weather = weather.N;
+        fs.writeFile("./weatherData.json", JSON.stringify(weatherData), (err) => console.error);
+        const author = message.author.username;
+        let confEmb = new discord.RichEmbed()
+         .setColor(weather.C)
+         .setTitle(author + ' has used weather magic!')
+         .setDescription('*It is now ' + weatherData.weather.toLowerCase() + '*')
+        return message.channel.send(confEmb)
+      }
+      else if ( wArg === '5' || wArg === 'stormy'){
+        weatherupdater.stormy();
+         weatherData.weather = weather.N;
+        fs.writeFile("./weatherData.json", JSON.stringify(weatherData), (err) => console.error);
+        const author = message.author.username;
+        let confEmb = new discord.RichEmbed()
+         .setColor(weather.C)
+         .setTitle(author + ' has used weather magic!')
+         .setDescription('*It is now ' + weatherData.weather.toLowerCase() + '*')
+        return message.channel.send(confEmb)
+      }
+      else if ( wArg === '6' || wArg === 'snowy'){
+        weatherupdater.snowy();
+         weatherData.weather = weather.N;
+        fs.writeFile("./weatherData.json", JSON.stringify(weatherData), (err) => console.error);
+        const author = message.author.username;
+        let confEmb = new discord.RichEmbed()
+         .setColor(weather.C)
+         .setTitle(author + ' has used weather magic!')
+         .setDescription('*It is now ' + weatherData.weather.toLowerCase() + '*')
+        return message.channel.send(confEmb)
+      }
+      else if( wArg === undefined){
+        let alterEmb = new discord.RichEmbed()
       .setColor("#7CFC00")
-      .setAuthor("--------------------------------------------------------------------------------")
-      .setTitle("Weather Alter Ability")
+      .setTitle("Weather Altering Spell")
       .setDescription("Select an option to change weather:")
-      .addField("Select:", "[1] Sunny\n[2] Windy\n[3] Cloudy\n[4] Rainy\n[5] Stormy\n[6] Snowy", false)
-      .setFooter("---------------------------------------------------------------------------------------------")
-    message.channel.send(alterEmb);
-    }}})
+      .addField("[1] sunny\n[2] windy\n[3] cloudy\n[4] rainy\n[5] stormy\n[6] snowy", "Usage: " + config.prefix + 'alter <1-6> || ' + config.prefix + 'alter <weather>', false)
+    message.channel.send(alterEmb)
+      }
+      else{
+        message.channel.send('Invalid weather condition. Type ' + config.prefix + 'alter for more info.')
+      }
+    }
+    else{
+      message.channel.send('yah yeet no can do')
+    }
+}})
