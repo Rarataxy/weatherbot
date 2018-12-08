@@ -1,10 +1,1 @@
-{
-    "season": "spring",
-    "weather": "Rainy",
-    "event": "Eclypse",
-    "sinceLEclipse": 0,
-    "sinceSEclipse": 0,
-    "sinceStorm": 0,
-    "avalanche": 0,
-    "fire": 0
-}
+{"season":"spring","weather":"Sunny","event":"Eclypse","sinceLEclipse":0,"sinceSEclipse":0,"sinceStorm":0,"avalanche":0,"fire":0}
