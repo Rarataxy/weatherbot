@@ -4,7 +4,7 @@ const weatherStatus = require("./weatherStatus.json");
 const fs = require("fs");
 
 module.exports = {
-updateR:    function UpdateR(){
+rainy:    function UpdateR(){
                  weather.C = weatherStatus.RC;
                  weather.E1 = weatherStatus.RE1;
                  weather.E2 = weatherStatus.RE2;
@@ -12,7 +12,7 @@ updateR:    function UpdateR(){
                 fs.writeFile("./weather.json", JSON.stringify(weather), (err) => console.error);
             },
 
-updateS:    function UpdateS(){
+snowy:    function UpdateS(){
                  weather.C = weatherStatus.SNC;
                  weather.E1 = weatherStatus.SNE1;
                  weather.E2 = weatherStatus.SNE2;
@@ -20,7 +20,7 @@ updateS:    function UpdateS(){
                 fs.writeFile("./weather.json", JSON.stringify(weather), (err) => console.error);
             },
 
-updateT:    function UpdateT(){
+thunder:    function UpdateT(){
                  weather.C = weatherStatus.TC;
                  weather.E1 = weatherStatus.TE1;
                  weather.E2 = weatherStatus.TE2;
@@ -28,7 +28,7 @@ updateT:    function UpdateT(){
                 fs.writeFile("./weather.json", JSON.stringify(weather), (err) => console.error);
             },
 
-updateW:    function UpdateW(){
+windy:    function UpdateW(){
                  weather.C = weatherStatus.WC;
                  weather.E1 = weatherStatus.WE1;
                  weather.E2 = weatherStatus.WE2;
@@ -36,7 +36,7 @@ updateW:    function UpdateW(){
                 fs.writeFile("./weather.json", JSON.stringify(weather), (err) => console.error);
             },
 
-updateC:    function UpdateC(){
+cloudy:    function UpdateC(){
                  weather.C = weatherStatus.CC;
                  weather.E1 = weatherStatus.CE1;
                  weather.E2 = weatherStatus.CE2;
@@ -44,7 +44,7 @@ updateC:    function UpdateC(){
                 fs.writeFile("./weather.json", JSON.stringify(weather), (err) => console.error);
             },
 
-updateS:    function UpdateS(){
+sunny:    function UpdateS(){
                  weather.C = weatherStatus.SC;
                  weather.E1 = weatherStatus.SE1;
                  weather.E2 = weatherStatus.SE2;
