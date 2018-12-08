@@ -75,7 +75,7 @@ bot.on('message', message => {
       .setTitle(weather.E1 + "  Events")
       .setDescription("What's the current weather?")
       .addField(weather.E2 + '  ' + weatherData.weather, '***                  ***' + '  ' + weather.D, false)
-      .setFooter("------------------------ events ------------------------")
+      .setFooter("------------------------------------- weather -------------------------------------")
       return message.channel.send(weatherEmb);
     }
 });
