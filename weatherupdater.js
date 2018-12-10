@@ -49,7 +49,7 @@ cloudy:    function UpdateC(){
                 fs.writeFile("./weather.json", JSON.stringify(weather), (err) => console.error);
             },
 
-sunny:    function UpdateS(){
+sunny:    function UpdateSu(){
                  weather.N = "Sunny"
                  weather.C = weatherStatus.SC;
                  weather.E1 = weatherStatus.SE1;
