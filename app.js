@@ -57,8 +57,7 @@ bot.on('message', message =>{
   bot.on('message', message => {     
     if(message.content === config.prefix + 'ping') {
       message.channel.send('Pong!');
-      weatherupdater.cloudy();
-      eventUpdater.eclypse();
+      eventUpdater.moon();
     }
 });
 
@@ -72,7 +71,7 @@ bot.on('message', message => {
       let weatherEmb = new discord.RichEmbed()
       .setAuthor("WeatherBot Events", icon_url="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn3.iconfinder.com%2Fdata%2Ficons%2Fluchesa-vol-9%2F128%2FWeather-512.png&f=1")
       .setColor(weather.C)
-      .setTitle(weather.E1 + "  Events")
+      .setTitle(weather.E1 + "  Weather")
       .setDescription("What's the current weather?")
       .addField(weather.E2 + '  ' + weatherData.weather, '***                  ***' + '  ' + weather.D, false)
       .setFooter("------------------------------------- weather -------------------------------------")
@@ -181,3 +180,7 @@ bot.on('message', message =>{
       message.channel.send('yah yeet no can do')
     }
 }})
+
+functions.randomweather()
+
+setInterval(functions.randomweather, 5000)
