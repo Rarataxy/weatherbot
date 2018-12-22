@@ -6,6 +6,7 @@ const eventUpdater = require("./eventUpdater.js");
 const weatherData = require("./weatherData.json");
 const functions = require("./functions.js");
 const weather = require("./weather.json");
+const timeline = require("./timeLine.js");
 const event = require("./events.json");
 const fs = require("fs");
 
@@ -57,7 +58,6 @@ bot.on('message', message =>{
   bot.on('message', message => {     
     if(message.content === config.prefix + 'ping') {
       message.channel.send('Pong!');
-      eventUpdater.moon();
     }
 });
 
@@ -69,11 +69,11 @@ bot.on('message', message =>{
 bot.on('message', message => {
     if(message.content === config.prefix + 'weather'){
       let weatherEmb = new discord.RichEmbed()
-      .setAuthor("WeatherBot Events", icon_url="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn3.iconfinder.com%2Fdata%2Ficons%2Fluchesa-vol-9%2F128%2FWeather-512.png&f=1")
+      .setAuthor("WeatherBot Weather", icon_url="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn3.iconfinder.com%2Fdata%2Ficons%2Fluchesa-vol-9%2F128%2FWeather-512.png&f=1")
       .setColor(weather.C)
       .setTitle(weather.E1 + "  Weather")
       .setDescription("What's the current weather?")
-      .addField(weather.E2 + '  ' + weatherData.weather, '***                  ***' + '  ' + weather.D, false)
+      .addField(weather.E2 + '  ' + weather.N, '***                  ***' + '  ' + weather.D, false)
       .setFooter("------------------------------------- weather -------------------------------------")
       return message.channel.send(weatherEmb);
     }
@@ -180,7 +180,3 @@ bot.on('message', message =>{
       message.channel.send('yah yeet no can do')
     }
 }})
-
-functions.randomweather()
-
-setInterval(functions.randomweather, 5000)
