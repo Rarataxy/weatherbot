@@ -119,12 +119,10 @@ function eventup(){
     let rand = events[Math.floor(Math.random() * events.length)];
     (rand)();
     let eventEmb = new discord.RichEmbed()
-      .setAuthor("WeatherBot Events", icon_url="https://i.imgur.com/38ayDN2.jpg")
-      .setColor(event.C)
-      .setTitle(event.E1 + "  Events")
-      .setDescription("What's the current event?")
-      .addField(event.E2 + '  ' + event.N, '***                  ***' + '  ' + event.D, false)
-      .setFooter("------------------------ events ------------------------")
+    .setAuthor("Event", icon_url=`${event.E1}`)
+    .setColor(event.C)
+    .setDescription("What's the current event?")
+    .addField(event.E2 + '  ' + event.N, '***      ***' + '  ' + event.D, false)
     channel.send(eventEmb)
   }
   else{
@@ -165,12 +163,10 @@ bot.on('message', message => {
 bot.on('message', message => {
     if(message.content === config.prefix + 'weather'){
       let weatherEmb = new discord.RichEmbed()
-      .setAuthor("WeatherBot Weather", icon_url="https://i.imgur.com/38ayDN2.jpg")
+      .setAuthor("Weather", icon_url=`${weather.E2}`)
       .setColor(weather.C)
-      .setTitle(weather.E1 + "  Weather")
       .setDescription("What's the current weather?")
-      .addField(weather.E2 + '  ' + weather.N, '***                  ***' + '  ' + weather.D, false)
-      .setFooter("----------------------- weather -----------------------")
+      .addField(weather.E1 + '  ' + weather.N, '***      ***' + '  ' + weather.D, false)
       return message.channel.send(weatherEmb);
     }
 });
@@ -178,13 +174,11 @@ bot.on('message', message => {
 bot.on('message', message =>{
   if(message.content === config.prefix + 'event'){
     let eventEmb = new discord.RichEmbed()
-     .setAuthor("WeatherBot Events", icon_url="https://i.imgur.com/38ayDN2.jpg")
-     .setColor(event.C)
-     .setTitle(event.E1 + "  Events")
-     .setDescription("What's the current event?")
-     .addField(event.E2 + '  ' + event.N, '***                  ***' + '  ' + event.D, false)
-     .setFooter("------------------------ events ------------------------")
-     return message.channel.send(eventEmb);
+    .setAuthor("Event", icon_url=`${event.E1}`)
+    .setColor(event.C)
+    .setDescription("What's the current event?")
+    .addField(event.E2 + '  ' + event.N, '***      ***' + '  ' + event.D, false)
+    return message.channel.send(eventEmb);
   }
 });
 
@@ -202,12 +196,10 @@ bot.on('message', message =>{
         fs.writeFile("./weatherData.json", JSON.stringify(weatherData), (err) => console.error);
         const author = message.author.username;
         let weatherEmb = new discord.RichEmbed()
-        .setAuthor("WeatherBot Weather", icon_url="https://i.imgur.com/38ayDN2.jpg")
+        .setAuthor("Weather", icon_url=`${weather.E2}`)
         .setColor(weather.C)
-        .setTitle(weather.E1 + "  Weather")
         .setDescription("What's the current weather?")
-        .addField(weather.E2 + '  ' + weather.N, '***                  ***' + '  ' + weather.D, false)
-        .setFooter("----------------------- weather -----------------------")
+        .addField(weather.E1 + '  ' + weather.N, '***      ***' + '  ' + weather.D, false)
         channel.send(weatherEmb);
         let confEmb = new discord.RichEmbed()
          .setColor(weather.C)
@@ -221,12 +213,10 @@ bot.on('message', message =>{
         fs.writeFile("./weatherData.json", JSON.stringify(weatherData), (err) => console.error);
         const author = message.author.username;
         let weatherEmb = new discord.RichEmbed()
-        .setAuthor("WeatherBot Weather", icon_url="https://i.imgur.com/38ayDN2.jpg")
+        .setAuthor("Weather", icon_url=`${weather.E2}`)
         .setColor(weather.C)
-        .setTitle(weather.E1 + "  Weather")
         .setDescription("What's the current weather?")
-        .addField(weather.E2 + '  ' + weather.N, '***                  ***' + '  ' + weather.D, false)
-        .setFooter("----------------------- weather -----------------------")
+        .addField(weather.E1 + '  ' + weather.N, '***      ***' + '  ' + weather.D, false)
         channel.send(weatherEmb);
         let confEmb = new discord.RichEmbed()
          .setColor(weather.C)
@@ -240,12 +230,10 @@ bot.on('message', message =>{
         fs.writeFile("./weatherData.json", JSON.stringify(weatherData), (err) => console.error);
         const author = message.author.username;
         let weatherEmb = new discord.RichEmbed()
-        .setAuthor("WeatherBot Weather", icon_url="https://i.imgur.com/38ayDN2.jpg")
+        .setAuthor("Weather", icon_url=`${weather.E2}`)
         .setColor(weather.C)
-        .setTitle(weather.E1 + "  Weather")
         .setDescription("What's the current weather?")
-        .addField(weather.E2 + '  ' + weather.N, '***                  ***' + '  ' + weather.D, false)
-        .setFooter("----------------------- weather -----------------------")
+        .addField(weather.E1 + '  ' + weather.N, '***      ***' + '  ' + weather.D, false)
         channel.send(weatherEmb);
         let confEmb = new discord.RichEmbed()
          .setColor(weather.C)
@@ -259,12 +247,10 @@ bot.on('message', message =>{
         fs.writeFile("./weatherData.json", JSON.stringify(weatherData), (err) => console.error);
         const author = message.author.username;
         let weatherEmb = new discord.RichEmbed()
-        .setAuthor("WeatherBot Weather", icon_url="https://i.imgur.com/38ayDN2.jpg")
+        .setAuthor("Weather", icon_url=`${weather.E2}`)
         .setColor(weather.C)
-        .setTitle(weather.E1 + "  Weather")
         .setDescription("What's the current weather?")
-        .addField(weather.E2 + '  ' + weather.N, '***                  ***' + '  ' + weather.D, false)
-        .setFooter("----------------------- weather -----------------------")
+        .addField(weather.E1 + '  ' + weather.N, '***      ***' + '  ' + weather.D, false)
         channel.send(weatherEmb);
         let confEmb = new discord.RichEmbed()
          .setColor(weather.C)
@@ -278,12 +264,10 @@ bot.on('message', message =>{
         fs.writeFile("./weatherData.json", JSON.stringify(weatherData), (err) => console.error);
         const author = message.author.username;
         let weatherEmb = new discord.RichEmbed()
-        .setAuthor("WeatherBot Weather", icon_url="https://i.imgur.com/38ayDN2.jpg")
+        .setAuthor("Weather", icon_url=`${weather.E2}`)
         .setColor(weather.C)
-        .setTitle(weather.E1 + "  Weather")
         .setDescription("What's the current weather?")
-        .addField(weather.E2 + '  ' + weather.N, '***                  ***' + '  ' + weather.D, false)
-        .setFooter("----------------------- weather -----------------------")
+        .addField(weather.E1 + '  ' + weather.N, '***      ***' + '  ' + weather.D, false)
         channel.send(weatherEmb);
         let confEmb = new discord.RichEmbed()
          .setColor(weather.C)
@@ -297,12 +281,10 @@ bot.on('message', message =>{
         fs.writeFile("./weatherData.json", JSON.stringify(weatherData), (err) => console.error);
         const author = message.author.username;
         let weatherEmb = new discord.RichEmbed()
-        .setAuthor("WeatherBot Weather", icon_url="https://i.imgur.com/38ayDN2.jpg")
+        .setAuthor("Weather", icon_url=`${weather.E2}`)
         .setColor(weather.C)
-        .setTitle(weather.E1 + "  Weather")
         .setDescription("What's the current weather?")
-        .addField(weather.E2 + '  ' + weather.N, '***                  ***' + '  ' + weather.D, false)
-        .setFooter("----------------------- weather -----------------------")
+        .addField(weather.E1 + '  ' + weather.N, '***      ***' + '  ' + weather.D, false)
         channel.send(weatherEmb);
         let confEmb = new discord.RichEmbed()
          .setColor(weather.C)
@@ -348,12 +330,10 @@ function seasonUp(){
               weatherData.event = event.N;
               fs.writeFile("./weatherData.json", JSON.stringify(weatherData), (err) => console.error);
               let eventEmb = new discord.RichEmbed()
-              .setAuthor("WeatherBot Events", icon_url="https://i.imgur.com/38ayDN2.jpg")
+              .setAuthor("Event", icon_url=`${event.E1}`)
               .setColor(event.C)
-              .setTitle(event.E1 + "  Events")
               .setDescription("What's the current event?")
-              .addField(event.E2 + '  ' + event.N, '***                  ***' + '  ' + event.D, false)
-              .setFooter("------------------------ events ------------------------")
+              .addField(event.E2 + '  ' + event.N, '***      ***' + '  ' + event.D, false)
               channel.send(eventEmb)
           }, rand);
       }
@@ -368,21 +348,41 @@ function weatherUp(){
     const weathers = [weatherupdater.snowy, weatherupdater.snowy, weatherupdater.snowy, weatherupdater.snowy, weatherupdater.snowy, weatherupdater.cloudy, weatherupdater.windy, weatherupdater.sunny, weatherupdater.rainy, weatherupdater.stormy]
     let rand = weathers[Math.floor(Math.random() * weathers.length)];
     (rand)()
+    let eventEmb = new discord.RichEmbed()
+    .setColor(weather.C)
+    .setAuthor('The weather for now:', icon_url=weather.E2)
+    .addField(weather.E1 + '  ' + weather.N, '***      ***' + '  ' + weather.D, false)
+    channel.send(eventEmb)
   }
   else if ( season === 3) {
     const weathers = [weatherupdater.cloudy, weatherupdater.rainy, weatherupdater.sunny, weatherupdater.stormy, weatherupdater.windy, weatherupdater.rainy, weatherupdater.stormy, weatherupdater.windy, weatherupdater.cloudy, weatherupdater.rainy]
     let rand = weathers[Math.floor(Math.random() * weathers.length)];
     (rand)()
+    let eventEmb = new discord.RichEmbed()
+    .setColor(weather.C)
+    .setAuthor('The weather for now:', icon_url=weather.E2)
+    .addField(weather.E1 + '  ' + weather.N, '***      ***' + '  ' + weather.D, false)
+    channel.send(eventEmb)
   }
   else if ( season === 2) {
       const weathers =[weatherupdater.sunny, weatherupdater.sunny, weatherupdater.sunny, weatherupdater.sunny, weatherupdater.sunny, weatherupdater.cloudy, weatherupdater.cloudy, weatherupdater.rainy, weatherupdater.stormy, weatherupdater.windy]
       let rand = weathers[Math.floor(Math.random() * weathers.length)];
       (rand)()
+      let eventEmb = new discord.RichEmbed()
+      .setColor(weather.C)
+      .setAuthor('The weather for now:', icon_url=weather.E2)
+      .addField(weather.E1 + '  ' + weather.N, '***      ***' + '  ' + weather.D, false)
+      channel.send(eventEmb)
   }
   else {
       const weathers =[weatherupdater.windy, weatherupdater.windy, weatherupdater.windy, weatherupdater.cloudy, weatherupdater.cloudy, weatherupdater.snowy, weatherupdater.snowy, weatherupdater.rainy, weatherupdater.stormy, weatherupdater.sunny]
       let rand = weathers[Math.floor(Math.random() * weathers.length)];
       (rand)()
+      let eventEmb = new discord.RichEmbed()
+      .setColor(weather.C)
+      .setAuthor('The weather for now:', icon_url=weather.E2)
+      .addField(weather.E1 + '  ' + weather.N, '***      ***' + '  ' + weather.D, false)
+      channel.send(eventEmb)
   }
 }
 
@@ -396,12 +396,10 @@ function avalanche(){
               weatherData.event = event.N;
               fs.writeFile("./weatherData.json", JSON.stringify(weatherData), (err) => console.error);
               let eventEmb = new discord.RichEmbed()
-              .setAuthor("WeatherBot Events", icon_url="https://i.imgur.com/38ayDN2.jpg")
+              .setAuthor("Event", icon_url=`${event.E1}`)
               .setColor(event.C)
-              .setTitle(event.E1 + "  Events")
-              .setDescription("Huh? smonethings off...")
-              .addField(event.E2 + '  ' + event.N, '***                  ***' + '  ' + event.D, false)
-              .setFooter("------------------------ events ------------------------")
+              .setDescription("What's the current event?")
+              .addField(event.E2 + '  ' + event.N, '***      ***' + '  ' + event.D, false)
               mnt.send(eventEmb)
       }, rand)
   }
