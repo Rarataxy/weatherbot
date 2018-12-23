@@ -2,11 +2,11 @@
 ### A discord bot for managing weather in roleplay servers/channels
 
 ## Features
-1.  *A semi timed random weather changer,
-2.  *A semi timed random event changer,
-3.  *Changable prefix,
-4.  *Toggable events,
-5.  *Weather altering ability
+1.  *A semi timed random weather changer,*
+2.  *A semi timed random event changer,*
+3.  *Changable prefix,*
+4.  *Toggable events,*
+5.  *Weather altering ability*
 
 
 ### Event list *(will add more)*
