@@ -73,3 +73,6 @@ venv.bak/
 config/
 
 .vscode/
+
+/events.json
+/weather.json
