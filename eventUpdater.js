@@ -4,6 +4,7 @@ const fs = require("fs");
 
 module.exports = {
     avalanche:    function A(){
+                     event.N = "Avalanche"
                      event.C = eventStatus.AC;
                      event.E1 = eventStatus.AE1;
                      event.E2 = eventStatus.AE2;
@@ -12,14 +13,16 @@ module.exports = {
                 },
     
     stars:    function S(){
-                     event.C = eventStatus.SNC;
-                     event.E1 = eventStatus.SNE1;
-                     event.E2 = eventStatus.SNE2;
-                     event.D = eventStatus.SND;
+                     event.N = "Star allign"
+                     event.C = eventStatus.SC;
+                     event.E1 = eventStatus.SE1;
+                     event.E2 = eventStatus.SE2;
+                     event.D = eventStatus.SD;
                     fs.writeFile("./events.json", JSON.stringify(event), (err) => console.error);
                 },
     
     tornado:    function T(){
+                     event.N = "Tornado"        
                      event.C = eventStatus.TC;
                      event.E1 = eventStatus.TE1;
                      event.E2 = eventStatus.TE2;
@@ -28,6 +31,7 @@ module.exports = {
                 },
     
     moon:    function FM(){
+                     event.N = "Full moon"
                      event.C = eventStatus.FMC;
                      event.E1 = eventStatus.FME1;
                      event.E2 = eventStatus.FME2;
@@ -36,6 +40,7 @@ module.exports = {
                 },
     
     fstars:    function FS(){
+                     event.N = "Falling stars"
                      event.C = eventStatus.FSC;
                      event.E1 = eventStatus.FSE1;
                      event.E2 = eventStatus.FSE2;
@@ -44,6 +49,7 @@ module.exports = {
                 },
     
     eclypse:    function E(){
+                     event.N = "Eclypse"
                      event.C = eventStatus.EC;
                      event.E1 = eventStatus.EE1;
                      event.E2 = eventStatus.EE2;
