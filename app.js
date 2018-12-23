@@ -176,7 +176,7 @@ bot.on('message', message =>{
     let eventEmb = new discord.RichEmbed()
     .setAuthor("Event", icon_url=`${event.E1}`)
     .setColor(event.C)
-    .setDescription("What's the current event?")
+    .setDescription("What was the last event?")
     .addField(event.E2 + '  ' + event.N, '***      ***' + '  ' + event.D, false)
     return message.channel.send(eventEmb);
   }
