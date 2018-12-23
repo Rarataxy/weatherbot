@@ -1,31 +1,31 @@
 {
     "AC": "#fff",
-    "AE1": ":mountain_snow:",
+    "AE1": "https://i.imgur.com/CgDePud.png",
     "AE2": ":warning:",
     "AD": "  Avalanche alert!",
 
     "SC": "#8f1dd1",
-    "SE1": ":milky_way:",
+    "SE1": "https://i.imgur.com/DiEf8Vm.png",
     "SE2": ":sparkles:",
     "SD": "  The stars are alligned!",
 
     "TC": "#85858c",
-    "TE1": ":cloud_tornado:",
+    "TE1": "https://i.imgur.com/xfSUtDc.png",
     "TE2": ":warning:",
     "TD": "  Tornado alert!",
 
     "FMC": "#fcfcf2",
-    "FME1": ":full_moon:",
+    "FME1": "https://i.imgur.com/YrsfRiQ.png",
     "FME2": ":night_with_stars:",
     "FMD": "  *Tonight is going to be a full moon!*",
 
     "FSC": "#4c22bf",
-    "FSE1": ":comet:",
+    "FSE1": "https://i.imgur.com/VNcYlNK.png",
     "FSE2": ":milky_way:",
     "FSD": "  Stars are falling!",
 
     "EC": "#fc7202",
-    "EE1": ":crescent_moon:",
+    "EE1": "https://i.imgur.com/4PR5Pg7.png",
     "EE2": ":city_dusk:",
     "ED": "  A solar eclipse is happening!"
 }
