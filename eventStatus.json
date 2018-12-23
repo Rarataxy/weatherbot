@@ -1,13 +1,13 @@
 {
     "AC": "#fff",
-    "AE1": ":mountain_snow",
+    "AE1": ":mountain_snow:",
     "AE2": ":warning:",
     "AD": "  Avalanche alert!",
 
     "SC": "#8f1dd1",
     "SE1": ":milky_way:",
     "SE2": ":sparkles:",
-    "SD": "  The stars have alligned!",
+    "SD": "  The stars are alligned!",
 
     "TC": "#85858c",
     "TE1": ":cloud_tornado:",

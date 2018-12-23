@@ -2,7 +2,7 @@
     "RC": "#40a4df",
     "RE1": ":cloud_rain:",
     "RE2": ":umbrella:",
-    "RD": "It will rain for the rest of today, prepare yourself!",
+    "RD": "It will today!",
 
     "SNC": "#fffafa",
     "SNE1": ":cloud_snow:",
@@ -12,7 +12,7 @@
     "TC": "#A99923",
     "TE1": ":thunder_cloud_rain:",
     "TE2": ":zap: ",
-    "TD": "lighing mcqween",
+    "TD": "There's no storm without a thunder",
 
     "WC": "#a2a4a5",
     "WE1": ":leaves:",
@@ -22,7 +22,7 @@
     "CC": "#aaafc4",
     "CE1": ":cloud:",
     "CE2": ":fog:",
-    "CD": "many clouds",
+    "CD": "The gods are smoking",
 
     "SC": "#f7ca02",
     "SE1": ":white_sun_small_cloud:",
