@@ -30,12 +30,12 @@
 
 
 ## How to use:
-step 1.  Make sure to have a `weather-forecast` channel.
-step 2.  Run the bot  and type **_(prefix)start_**
+step 1.  Make sure to have a `weather-forecast` channel,
+step 2.  Run the bot  and type **_(prefix)start_**,
 step 3.  *Done!* the bot is now running just fine!
 
 (Optional steps)
-step 4. To have the ability to change the weather make a role called `weather mage`. Everyone with this role will be able to controll the skies at will!
+step 4. To have the ability to change the weather make a role called `weather mage`. Everyone with this role will be able to controll the skies at will!,
 step 5. if you do not want events run **+togglevents off_**. **Remember you cna always turn them back on by typing `togglevents on`!**
 
 
