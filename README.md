@@ -10,20 +10,20 @@
 
 
 ### Event list *(will add more)*
-1. [x] Solar Eclypse,
-2. [x] Full moon,
-3. [x] Falling stars,
-4. [x] Tornadoes,
-5. [x] Avalanches,
+1. [x] Solar Eclypse
+2. [x] Full moon
+3. [x] Falling stars
+4. [x] Tornadoes
+5. [x] Avalanches
 6. [x] Star allignments
 
 
 ### Weather list *(will also add more)*
-1. [x] Sunny,
-2. [x] Windy,
-3. [x] Cloudy,
-4. [x] Rainy,
-5. [x] Stormy,
+1. [x] Sunny
+2. [x] Windy
+3. [x] Cloudy
+4. [x] Rainy
+5. [x] Stormy
 6. [x] Snowy
 
 
