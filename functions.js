@@ -1,14 +1,10 @@
-const weatherData = require("./weatherData.json");
-const weather = require("./weather.json")
-const weatherStatus = require("./weatherStatus.json");
-const fs = require("fs");
-const weatherupdater = require("./weatherupdater.js");
-
-
 module.exports = {
- colors: function colors(){
-    let kolors = ['#b53000','#e0af00','#b1e800','#1daa11','#09b774','#1092ba','#262da8','#7228a3','#bf1cae','#d30860','#c41717'];
-    let random = kolors[Math.floor(Math.random()*kolors.length)];
-    return random;
+  colors: function colors() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
   }
 }
