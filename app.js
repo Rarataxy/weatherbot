@@ -1,12 +1,10 @@
 //requirements
 
-//dcjs
+//config/ dcjs
 const discord = require('discord.js');
-
-//config
 const config = require("./config/config.json");
 
-//weather stuff
+//weather/ event stuff
 const weatherupdater = require("./weatherupdater.js");
 const eventUpdater = require("./eventUpdater.js");
 const weatherData = require("./weatherData.json");
@@ -135,7 +133,6 @@ bot.on('message', message => {
         weatherData.weather = weather.N;
         fs.writeFile("./weatherData.json", JSON.stringify(weatherData), (err) => console.error);
         forecast.send(ewthr.weather());
-
         const author = message.author.username;
         message.channel.send(ealtr.alter(author));
 
@@ -144,7 +141,6 @@ bot.on('message', message => {
         weatherData.weather = weather.N;
         fs.writeFile("./weatherData.json", JSON.stringify(weatherData), (err) => console.error);
         forecast.send(ewthr.weather());
-
         const author = message.author.username;
         message.channel.send(ealtr.alter(author));
 
@@ -153,7 +149,6 @@ bot.on('message', message => {
         weatherData.weather = weather.N;
         fs.writeFile("./weatherData.json", JSON.stringify(weatherData), (err) => console.error);
         forecast.send(ewthr.weather());
-
         const author = message.author.username;
         message.channel.send(ealtr.alter(author));
 
@@ -162,7 +157,6 @@ bot.on('message', message => {
         weatherData.weather = weather.N;
         fs.writeFile("./weatherData.json", JSON.stringify(weatherData), (err) => console.error);
         forecast.send(ewthr.weather());
-
         const author = message.author.username;
         message.channel.send(ealtr.alter(author));
 
@@ -171,7 +165,6 @@ bot.on('message', message => {
         weatherData.weather = weather.N;
         fs.writeFile("./weatherData.json", JSON.stringify(weatherData), (err) => console.error);
         forecast.send(ewthr.weather());
-
         const author = message.author.username;
         message.channel.send(ealtr.alter(author));
 
@@ -180,20 +173,29 @@ bot.on('message', message => {
         weatherData.weather = weather.N;
         fs.writeFile("./weatherData.json", JSON.stringify(weatherData), (err) => console.error);
         forecast.send(ewthr.weather());
-
         const author = message.author.username;
         message.channel.send(ealtr.alter(author));
 
       } else if (wArg === undefined) {
         message.channel.send(ealtr.help())
       } else {
-        message.channel.send('Invalid weather condition. Type ' + config.prefix + 'alter for more info.')
+        message.channel.send('`Invalid weather condition. Type ' + config.prefix + 'weatheralter for more info.`')
       }
     } else {
-      message.channel.send('yah yeet no can do')
+      message.channel.send('`Yah Yeet No can do`')
     }
   }
 })
+
+
+
+
+
+//timeline
+
+const weathers = [weatherupdater.snowy, weatherupdater.snowy, weatherupdater.snowy, weatherupdater.snowy, weatherupdater.snowy, weatherupdater.cloudy, weatherupdater.windy, weatherupdater.sunny, weatherupdater.rainy, weatherupdater.stormy]
+const events = [eventUpdater.avalanche, eventUpdater.fstars, eventUpdater.moon, eventUpdater.stars, eventUpdater.tornado]
+
 
 function seasonUp() {
   let season = weatherData.season;
@@ -268,7 +270,7 @@ function weatherUp() {
 
 function eventup() {
   if (config.ready === "on") {
-    const events = [eventUpdater.avalanche, eventUpdater.fstars, eventUpdater.moon, eventUpdater.stars, eventUpdater.tornado]
+
     let rand = events[Math.floor(Math.random() * events.length)];
     (rand)();
     let eventEmb = new discord.RichEmbed()
@@ -282,21 +284,6 @@ function eventup() {
   }
 }
 
-function avalanche() {
-  if (!mountain) {
-    return
-  } else {
-      eventUpdater.avalanche();
-      weatherData.event = event.N;
-      fs.writeFile("./weatherData.json", JSON.stringify(weatherData), (err) => console.error);
-      let eventEmb = new discord.RichEmbed()
-        .setAuthor("Event", icon_url = `${event.E1}`)
-        .setColor(event.C)
-        .setDescription("What's the current event?")
-        .addField(event.E2 + '  ' + event.N, '***      ***' + '  ' + event.D, false)
-      mnt.send(eventEmb)
-    }
-};
 
 //in case shit goes wrong
 bot.on('message', message => {

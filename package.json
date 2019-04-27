@@ -4,7 +4,8 @@
   "main": "app.js",
   "description": "YEET",
   "dependencies": {
-    "discord.js": "^11.4.2"
+    "discord.js": "^11.4.2",
+    "moment": "^2.24.0"
   },
   "peerDependencies": {
     "bufferutil": "^3.0.3",

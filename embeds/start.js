@@ -7,6 +7,6 @@ module.exports = {
                 .setAuthor("WeatherBot", icon_url = "https://i.imgur.com/38ayDN2.jpg")
                 .setColor("#ff0040")
                 .setTitle("Started successfully!")
-                .setDescription('Events are on dy default.\n To turn them off run `' + config.prefix + 'togglevents on/off`')
+                .setDescription(`Having trouble? Try ${config.prefix}help`)
             return emb;
 }}
