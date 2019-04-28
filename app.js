@@ -41,7 +41,7 @@ bot.on('ready', () => {
 
 //find channels, start embed
 bot.on('ready', () => {
-  forecast = bot.channels.find('name', mainchannel);
+  forecast = bot.channels.find(x => x.name === mainchannel);
   if (!forecast) {
     console.log(`[ERR] No ${mainchannel} decected! ZEUS will now shutdown`);
     bot.destroy(bot)
@@ -141,7 +141,7 @@ bot.on('message', message => {
   if(message.author.bot || message.channel.type === 'dm') return;
 
   if (message.content.startsWith(config.prefix + 'weatheralter')) {
-    if (message.member.roles.find("name", "weather mage")) {
+    if (message.member.roles.find(x => x.name === "Weather Mage")) {
       let wArg = message.content.split(" ").slice(1, 2)[0];
       if (wArg === '1' || wArg === 'sunny') {
         weatherupdater.sunny();
