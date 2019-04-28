@@ -12,7 +12,6 @@ const weather = require("./weather.json");
 const event = require("./events.json");
 
 //other usefull stuff
-const functions = require("./functions.js");
 const fs = require("fs");
 
 //embeds
@@ -27,7 +26,6 @@ const etogg = require('./embeds/togglevents')
 
 //variables
 var forecast;
-let prefix = config.prefix;
 let mainchannel = config.channel;
 
 //login
@@ -56,7 +54,7 @@ bot.on('ready', () => {
 bot.on('message', message => {
   if(message.author.bot || message.channel.type === 'dm') return;
 
-  if(message.content.toLowerCase() === `${config.prefix}emergencystartup`) {
+  if(message.content.toLowerCase() === `${config.prefix}start`) {
     if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(errorembed);
     else {
       weatherUp();
