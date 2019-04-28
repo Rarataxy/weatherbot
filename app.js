@@ -23,10 +23,10 @@ const estrt = require('./embeds/start');
 const eeror = require('./embeds/error');
 const esucc = require('./embeds/success');
 const ealtr = require('./embeds/alter');
+const etogg = require('./embeds/togglevents')
 
 //variables
 var forecast;
-var mnt;
 let prefix = config.prefix;
 let mainchannel = config.channel;
 
@@ -44,12 +44,25 @@ bot.on('ready', () => {
 //find channels, start embed
 bot.on('ready', () => {
   forecast = bot.channels.find('name', mainchannel);
-  mountain = bot.channels.find('name', 'mountain');
   if (!forecast) {
     console.log(`[ERR] No ${mainchannel} decected! ZEUS will now shutdown`);
     bot.destroy(bot)
   } else {
     return forecast.send(estrt.start());
+  }
+});
+
+//in case shit goes wrong
+bot.on('message', message => {
+  if(message.author.bot || message.channel.type === 'dm') return;
+
+  if(message.content.toLowerCase() === `${config.prefix}emergencystartup`) {
+    if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(errorembed);
+    else {
+      weatherUp();
+      eventUp();
+      message.delete();
+    }
   }
 });
 
@@ -80,29 +93,27 @@ bot.on('message', message => {
   };
 });
 
+
+// togglevents
 bot.on('message', message => {
-  if (message.content.toLowerCase() === `${config.prefix}togglevents`) {
+  if(message.author.bot || message.channel.type === 'dm') return;
+
+  if (message.content.startsWith(`${config.prefix}togglevents`)) {
     if (message.member.hasPermission('ADMINISTRATOR')) {
       let arg = message.content.split(" ").slice(1, 2)[0];
       if (arg === "on") {
         config.events = "on"
         fs.writeFile("./config/config.json", JSON.stringify(config), (err) => console.error);
-        let emb = new discord.RichEmbed()
-          .setAuthor("WeatherBot", icon_url = "https://i.imgur.com/38ayDN2.jpg")
-          .setColor("#39b01c")
-          .setTitle("Events had been turned on!")
-        return message.channel.send(emb)
-      } else {
+        message.channel.send(etogg.on())
+      } else if(arg === "off"){
         config.events = "off"
         fs.writeFile("./config/config.json", JSON.stringify(config), (err) => console.error);
-        let emb = new discord.RichEmbed()
-          .setAuthor("WeatherBot", icon_url = "https://i.imgur.com/38ayDN2.jpg")
-          .setColor("#c0150c")
-          .setTitle("Events had been turned off!")
-        return message.channel.send(emb)
+        message.channel.send(etogg.off())
+      } else {
+        message.channel.send(etogg.help())
       }
     } else {
-      return;
+      return message.channel.send('`yah yeet no can do`');
     }
   }
 });
@@ -111,6 +122,8 @@ bot.on('message', message => {
 
 //whats the weather
 bot.on('message', message => {
+  if(message.author.bot || message.channel.type === 'dm') return;
+
   if (message.content.toLowerCase() === config.prefix + 'weather') {
     return message.channel.send(ewthr.weather());
   }
@@ -118,6 +131,8 @@ bot.on('message', message => {
 
 //whats the event
 bot.on('message', message => {
+  if(message.author.bot || message.channel.type === 'dm') return;
+
   if (message.content.toLowerCase() === config.prefix + 'event') {
     return message.channel.send(eevnt.event());
   }
@@ -125,6 +140,8 @@ bot.on('message', message => {
 
 // WeatherAlter magic
 bot.on('message', message => {
+  if(message.author.bot || message.channel.type === 'dm') return;
+
   if (message.content.startsWith(config.prefix + 'weatheralter')) {
     if (message.member.roles.find("name", "weather mage")) {
       let wArg = message.content.split(" ").slice(1, 2)[0];
@@ -193,108 +210,36 @@ bot.on('message', message => {
 
 //timeline
 
-const weathers = [weatherupdater.snowy, weatherupdater.snowy, weatherupdater.snowy, weatherupdater.snowy, weatherupdater.snowy, weatherupdater.cloudy, weatherupdater.windy, weatherupdater.sunny, weatherupdater.rainy, weatherupdater.stormy]
-const events = [eventUpdater.avalanche, eventUpdater.fstars, eventUpdater.moon, eventUpdater.stars, eventUpdater.tornado]
+const moment = require('moment');
+var weatherTimer
+var eventTimer
 
+const weathers = [weatherupdater.cloudy, weatherupdater.cloudy, weatherupdater.cloudy, weatherupdater.sunny, weatherupdater.sunny, weatherupdater.sunny, weatherupdater.windy, weatherupdater.windy, weatherupdater.rainy, weatherupdater.rainy, weatherupdater.stormy, weatherupdater.stormy]
+const events = [eventUpdater.fstars, eventUpdater.moon, eventUpdater.stars, eventUpdater.tornado]
 
-function seasonUp() {
-  let season = weatherData.season;
-  let eclypse = weatherData.eclypse;
-  if (season < 4) {
-    weatherData.season = season + 1;
-    fs.writeFile("./weatherData.json", JSON.stringify(weatherData), (err) => console.error);
-  } else {
-    weatherData.season = 1;
-    weatherData.eclypse = eclypse + 1;
-    fs.writeFile("./weatherData.json", JSON.stringify(weatherData), (err) => console.error);
+weatherTimer = moment().add(30, 'minutes');
+eventTimer = moment().add(4, 'days')
 
-    if (weatherData.eclypse === 4 && config.events === "on") {
-      let rand = Math.floor(Math.random() * 1000);
-      setTimeout(function () {
-        weatherData.eclypse = 0;
-        fs.writeFile("./weatherData.json", JSON.stringify(weatherData), (err) => console.error);
-        eventUpdater.eclypse();
-        weatherData.event = event.N;
-        fs.writeFile("./weatherData.json", JSON.stringify(weatherData), (err) => console.error);
-        let eventEmb = new discord.RichEmbed()
-          .setAuthor("Event", icon_url = `${event.E1}`)
-          .setColor(event.C)
-          .setDescription("What's the current event?")
-          .addField(event.E2 + '  ' + event.N, '***      ***' + '  ' + event.D, false)
-        forecast.send(eventEmb)
-      }, rand);
-    }
-  }
-}
+setInterval(() => {
+        var tmer = moment();
+        if(weatherTimer.diff(tmer, 'minutes') <= 1){
+          weatherTimer = moment().add(30, 'minutes');
+          weatherUp();
+        };
+        if(eventTimer.diff(tmer, 'minutes') <= 1 && config.events === "on"){
+          eventTimer = moment().add(4, 'days');
+          eventUp();
+        }
+    }, 6000);
 
 function weatherUp() {
-  let season = weatherData.season;
-  if (season === 4) {
-    const weathers = [weatherupdater.snowy, weatherupdater.snowy, weatherupdater.snowy, weatherupdater.snowy, weatherupdater.snowy, weatherupdater.cloudy, weatherupdater.windy, weatherupdater.sunny, weatherupdater.rainy, weatherupdater.stormy]
     let rand = weathers[Math.floor(Math.random() * weathers.length)];
     (rand)()
-    let eventEmb = new discord.RichEmbed()
-      .setColor(weather.C)
-      .setAuthor('The weather for now:', icon_url = weather.E2)
-      .addField(weather.E1 + '  ' + weather.N, '***      ***' + '  ' + weather.D, false)
-    forecast.send(eventEmb)
-  } else if (season === 3) {
-    const weathers = [weatherupdater.cloudy, weatherupdater.rainy, weatherupdater.sunny, weatherupdater.stormy, weatherupdater.windy, weatherupdater.rainy, weatherupdater.stormy, weatherupdater.windy, weatherupdater.cloudy, weatherupdater.rainy]
-    let rand = weathers[Math.floor(Math.random() * weathers.length)];
-    (rand)()
-    let eventEmb = new discord.RichEmbed()
-      .setColor(weather.C)
-      .setAuthor('The weather for now:', icon_url = weather.E2)
-      .addField(weather.E1 + '  ' + weather.N, '***      ***' + '  ' + weather.D, false)
-    forecast.send(eventEmb)
-  } else if (season === 2) {
-    const weathers = [weatherupdater.sunny, weatherupdater.sunny, weatherupdater.sunny, weatherupdater.sunny, weatherupdater.sunny, weatherupdater.cloudy, weatherupdater.cloudy, weatherupdater.rainy, weatherupdater.stormy, weatherupdater.windy]
-    let rand = weathers[Math.floor(Math.random() * weathers.length)];
-    (rand)()
-    let eventEmb = new discord.RichEmbed()
-      .setColor(weather.C)
-      .setAuthor('The weather for now:', icon_url = weather.E2)
-      .addField(weather.E1 + '  ' + weather.N, '***      ***' + '  ' + weather.D, false)
-    forecast.send(eventEmb)
-  } else {
-    const weathers = [weatherupdater.windy, weatherupdater.windy, weatherupdater.windy, weatherupdater.cloudy, weatherupdater.cloudy, weatherupdater.snowy, weatherupdater.snowy, weatherupdater.rainy, weatherupdater.stormy, weatherupdater.sunny]
-    let rand = weathers[Math.floor(Math.random() * weathers.length)];
-    (rand)()
-    let eventEmb = new discord.RichEmbed()
-      .setColor(weather.C)
-      .setAuthor('The weather for now:', icon_url = weather.E2)
-      .addField(weather.E1 + '  ' + weather.N, '***      ***' + '  ' + weather.D, false)
-    forecast.send(eventEmb)
-  }
+    forecast.send(ewthr.weathernn())
 }
 
-function eventup() {
-  if (config.ready === "on") {
-
+function eventUp() {
     let rand = events[Math.floor(Math.random() * events.length)];
-    (rand)();
-    let eventEmb = new discord.RichEmbed()
-      .setAuthor("Event", icon_url = `${event.E1}`)
-      .setColor(event.C)
-      .setDescription("What's the current event?")
-      .addField(event.E2 + '  ' + event.N, '***      ***' + '  ' + event.D, false)
-    channel.send(eventEmb)
-  } else {
-    return
-  }
+    (rand)()
+    forecast.send(eevnt.event())
 }
-
-
-//in case shit goes wrong
-bot.on('message', message => {
-  if(message.author.bot || message.channel.type === 'dm') return;
-
-  if(message.content.toLowerCase() === `${config.prefix}emergencystartup`) {
-    if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(errorembed);
-    else {
-      eventUpdater.eclypse();
-      weatherupdater.stormy();
-      message.delete();
-    }
-  }
-});

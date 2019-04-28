@@ -6,7 +6,7 @@ module.exports = {
                 .setAuthor("WeatherBot", icon_url = "https://i.imgur.com/38ayDN2.jpg")
                 .setColor("#956a6a")
                 .setTitle("List of all commands")
-                .addField("General", "`help`, `start`", false)
+                .addField("General", "`help`", false)
                 .addField("Settings", "`setpref`, `togglevents`", false)
                 .addField("Weather", "`weather`, `event`, `weatheralter`", false)
                 .setFooter(`The current prefix is ${config.prefix}`)
