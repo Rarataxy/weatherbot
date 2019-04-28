@@ -43,7 +43,7 @@ bot.on('ready', () => {
 bot.on('ready', () => {
   forecast = bot.channels.find(x => x.name === mainchannel);
   if (!forecast) {
-    console.log(`[ERR] No ${mainchannel} decected! ZEUS will now shutdown`);
+    console.log(`[ERR] No ${mainchannel} decected! ${bot.user.username} will now shutdown`);
     bot.destroy(bot)
   } else {
     return forecast.send(estrt.start());
